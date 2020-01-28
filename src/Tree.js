@@ -113,9 +113,3 @@ BST.prototype.depth = function () {
 
   return 1 + Math.max(leftDepth, rightDepth);
 }
-
-//         50
-//       /    \
-//     30     70
-//   /   \    /  \
-//  2    40  60   80
