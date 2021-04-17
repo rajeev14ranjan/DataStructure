@@ -1,4 +1,4 @@
-let set = [121, 23, 3, 333, 4];
+let numberSet = [121, 23, 3, 333, 4];
 
 function getMask(number) {
     let mask = 0;
@@ -10,24 +10,24 @@ function getMask(number) {
     return mask;
 }
 
-let hasTable = new Map();
+let hashTable = new Map();
 
-function getMaxSum(allowedDigit) {
-    if (hasTable.has(allowedDigit)) {
-        return hasTable.get(allowedDigit)
+function getMaxSum(allowedDigits) {
+    if (hashTable.has(allowedDigits)) {
+        return hashTable.get(allowedDigits)
     }
 
     let maxSum = 0;
-    for (let num of set) {
+    for (let num of numberSet) {
         let numMask = getMask(num);
 
         // number is valid for selection
-        if ((allowedDigit | numMask) == allowedDigit) {
-            maxSum = Math.max(maxSum, num + getMaxSum(allowedDigit ^ numMask))
+        if ((allowedDigits | numMask) == allowedDigits) {
+            maxSum = Math.max(maxSum, num + getMaxSum(allowedDigits ^ numMask))
         }
     }
 
-    hasTable.set(allowedDigit, maxSum);
+    hashTable.set(allowedDigits, maxSum);
     return maxSum;
 }
 
