@@ -1,8 +1,6 @@
-let numberSet = [121, 23, 3, 333, 4, 1000];
+let numberSet = [121, 23, 3, 333, 4];
 
 function getMask(number) {
-    if (number === 0) return 1;
-
     let mask = 0;
     while (number > 0) {
         let digit = number % 10;
