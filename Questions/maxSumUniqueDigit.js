@@ -1,11 +1,13 @@
-let numberSet = [121, 23, 3, 333, 4];
+let numberSet = [121, 23, 3, 333, 4, 1000];
 
 function getMask(number) {
+    if (number === 0) return 1;
+
     let mask = 0;
     while (number > 0) {
         let digit = number % 10;
         number = (number / 10) >> 0;
-        mask = mask | (1 << (digit - 1))
+        mask = mask | (1 << digit)
     }
     return mask;
 }
